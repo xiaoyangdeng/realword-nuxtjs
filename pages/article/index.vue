@@ -4,7 +4,7 @@
       <div class="container">
         <h1>{{ article.title }}</h1>
 
-        <article-meta :article="article" />
+        <article-meta :article="article" :canModify="canModify" />
       </div>
     </div>
 
@@ -14,7 +14,7 @@
       <hr />
 
       <div class="article-actions">
-        <article-meta :article="article" />
+        <article-meta :article="article" :canModify="canModify" />
       </div>
 
       <div class="row">
@@ -46,6 +46,7 @@ export default {
     article.body = md.render(article.body);
     return {
       article: article,
+      canModify: params.canModify || false,
     };
   },
   head() {

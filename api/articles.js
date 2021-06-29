@@ -53,3 +53,11 @@ export const getComments = slug => {
         //   
     })
 }
+//删除文章
+export const deleteArticles = slug => {
+    return request({
+        method: "DELETE",
+        url: `/api/articles/${slug}`,
+        data
+    })
+}

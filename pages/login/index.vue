@@ -91,9 +91,13 @@ export default {
         const { data } = this.isLogin
           ? await login(param)
           : await register(param);
+        this.$store.commit("setUserMessage", param);
+
         console.log(data);
         this.$store.commit("setUser", data.user);
         Cookie.set("user", data.user);
+        Cookie.set("userParams", param);
+
         //跳转首页
 
         this.$router.push("/");
